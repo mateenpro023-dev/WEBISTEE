@@ -192,6 +192,34 @@
   .contact-links a:hover{background:rgba(255,143,177,.18)}
   @media(max-width:600px){.site-session{top:8px;right:8px}.site-nav{top:62px}.contact-links{left:10px;bottom:10px;gap:6px}.contact-links a{font-size:.7rem;padding:9px 10px}.private-chat-toggle{right:10px;bottom:66px;padding:12px 14px}.private-chat{right:10px;bottom:122px;height:min(520px,calc(100dvh - 150px))}}
 
+
+  /* Editable scrapbook: photos and cute notes are saved in this browser. */
+  .scrapbook-section{padding-top:75px}
+  .scrapbook-head{text-align:center;max-width:780px;margin:0 auto 28px}
+  .scrapbook-tools{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:24px 0}
+  .scrapbook-tools label{display:block;color:var(--accent2);font-size:.86rem;font-weight:800;margin:0 0 8px}
+  .scrapbook-tools input[type=text],.scrapbook-tools textarea{width:100%;border:1px solid var(--line);border-radius:14px;padding:12px 14px;background:rgba(255,255,255,.07);color:#fff;font:inherit;outline:none}
+  .scrapbook-tools textarea{min-height:100px;resize:vertical}
+  .scrapbook-tools input[type=file]{width:100%;color:var(--muted);font-size:.85rem}
+  .scrapbook-tools input:focus,.scrapbook-tools textarea:focus{border-color:var(--accent)}
+  .scrapbook-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:12px}
+  .scrapbook-actions button,.scrap-item button{padding:10px 15px;font-size:.86rem}
+  .scrapbook-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:24px}
+  .scrap-item{overflow:hidden;border:1px solid var(--line);border-radius:22px;background:rgba(255,255,255,.055);box-shadow:0 18px 45px rgba(0,0,0,.22)}
+  .scrap-item img{display:block;width:100%;height:270px;object-fit:cover;background:rgba(255,255,255,.04)}
+  .scrap-item-body{padding:15px}
+  .scrap-item-body p{margin:0 0 12px;white-space:pre-wrap;overflow-wrap:anywhere}
+  .scrap-item-body input,.scrap-item-body textarea{width:100%;border:1px solid var(--line);border-radius:12px;padding:10px;background:rgba(0,0,0,.2);color:#fff;font:inherit;margin-bottom:10px}
+  .scrap-placeholder{min-height:245px;display:grid;place-items:center;text-align:center;padding:22px;border:1px dashed rgba(255,255,255,.25);border-radius:20px;color:var(--muted);background:linear-gradient(135deg,rgba(255,143,177,.08),rgba(255,255,255,.025))}
+  .scrap-placeholder strong{display:block;font-size:2.2rem;color:var(--accent2);margin-bottom:8px}
+  .cute-note{position:relative;padding:22px 22px 18px;border-radius:18px;background:linear-gradient(135deg,#fff4f8,#ffe1ec);color:#543344;box-shadow:0 15px 35px rgba(0,0,0,.18);transform:rotate(var(--tilt,0deg));}
+  .cute-note p{font-family:"Segoe Print","Bradley Hand","Comic Sans MS",cursive;color:#543344;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.75;margin:8px 0 14px}
+  .cute-note .note-date{font-size:.72rem;color:#a04f70}
+  .cute-note button{background:#f5bfd2;color:#54283b;padding:8px 12px;font-size:.8rem}
+  .scrapbook-empty{text-align:center;padding:20px;color:var(--muted);border:1px dashed var(--line);border-radius:18px}
+  .scrapbook-status{font-size:.82rem;color:var(--accent2);min-height:20px;margin-top:10px}
+  @media(max-width:750px){.scrapbook-tools,.scrapbook-gallery{grid-template-columns:1fr}.scrap-item img{height:300px}}
+
 </style>
 </head>
 <body class="auth-locked">
@@ -207,7 +235,7 @@
       Continue with Google
     </button>
     <div id="authStatus" class="auth-status" role="status">Connecting to secure sign-in…</div>
-    <p class="auth-small">Only mateenpro023@gmail.com and sij65117@gmail.com are approved. Other accounts will be signed out.</p>
+    <p class="auth-small">Only mateenpro023@gmail.com and sajeelamahmood24@gmail.com are approved. Other accounts will be signed out.</p>
   </div>
 </div>
 
@@ -230,6 +258,7 @@
         <a href="#letter">Mini Letter</a>
         <a href="#games">Games</a>
         <a href="#sweetest-photos">THE SWEETESTT and best photos</a>
+        <a href="#little-scrapbook">Our little scrapbook ✿</a>
         <a href="#october">October 3</a>
       </div>
       <button class="nav-close" id="navClose" type="button">Close menu ×</button>
@@ -519,7 +548,48 @@
 </section>
 
 
-<footer></footer>
+
+<section id="little-scrapbook" class="scrapbook-section">
+  <div class="wrap">
+    <div class="scrapbook-head">
+      <div class="eyebrow">made by us, for us ♡</div>
+      <h2>Our little scrapbook</h2>
+      <p>Add your own pictures, leave tiny love notes, and keep the little things that make you smile. Your changes save automatically in this browser.</p>
+      <div class="pill">a tiny place for our big feelings ✿</div>
+    </div>
+    <div class="scrapbook-tools">
+      <div class="card">
+        <div class="eyebrow">add a memory</div>
+        <h3>📸 Put your photo here</h3>
+        <p>Choose a photo from your device and give this memory a cute caption.</p>
+        <label for="scrapPhoto">Choose photo</label>
+        <input id="scrapPhoto" type="file" accept="image/*">
+        <label for="scrapCaption" style="margin-top:14px">Photo caption</label>
+        <input id="scrapCaption" type="text" maxlength="120" placeholder="e.g. my favourite smile ♡">
+        <div class="scrapbook-actions"><button id="addScrapPhoto" type="button">Add to our memories ♡</button></div>
+        <div id="photoStatus" class="scrapbook-status" role="status"></div>
+      </div>
+      <div class="card">
+        <div class="eyebrow">leave a tiny love note</div>
+        <h3>💌 A note for your person</h3>
+        <p>Write a compliment, an inside joke, a little thank-you, or a reminder for a hard day.</p>
+        <label for="noteTitle">Note title</label>
+        <input id="noteTitle" type="text" maxlength="80" placeholder="open when you miss me ♡">
+        <label for="noteText" style="margin-top:14px">Your cute note</label>
+        <textarea id="noteText" maxlength="1200" placeholder="hey my favourite human..." rows="4"></textarea>
+        <div class="scrapbook-actions"><button id="addCuteNote" type="button">Pin this little note 💗</button></div>
+        <div id="noteStatus" class="scrapbook-status" role="status"></div>
+      </div>
+    </div>
+    <div class="eyebrow" style="margin-top:32px">our photo wall</div>
+    <div id="scrapGallery" class="scrapbook-gallery" aria-live="polite"></div>
+    <div class="eyebrow" style="margin-top:36px">little notes to keep forever-ish</div>
+    <div id="cuteNotes" class="scrapbook-gallery" aria-live="polite"></div>
+    <p class="history-note">Tip: each person’s saved scrapbook lives in their own browser on this device. It will not automatically sync to the other person’s phone or computer.</p>
+  </div>
+</section>
+
+<footer><div class="wrap">made with a little love and a lot of pagalpan ♡</div></footer>
 
 <script>
 /* CircularCarousel-style behavior for the standalone HTML version. */
@@ -798,12 +868,12 @@
   import { getFirestore, collection, addDoc, query, orderBy, limit, onSnapshot, serverTimestamp } from 'https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js';
 
   const firebaseConfig = {
-    apiKey: 'PASTE_FIREBASE_API_KEY_HERE',
-    authDomain: 'PASTE_PROJECT_ID_HERE.firebaseapp.com',
-    projectId: 'PASTE_PROJECT_ID_HERE',
-    appId: 'PASTE_FIREBASE_APP_ID_HERE'
+    apiKey: 'AIzaSyBWb17HroXqopZF0i8TPACNUjclLBVBW7M',
+    authDomain: 'webb-72e0a.firebaseapp.com',
+    projectId: 'webb-72e0a',
+    appId: '1:1041331185397:web:5eaa4cc0694618c71587bc'
   };
-  const ALLOWED_EMAILS = new Set(['mateenpro023@gmail.com', 'sij65117@gmail.com']);
+  const ALLOWED_EMAILS = new Set(['mateenpro023@gmail.com', 'sajeelamahmood24@gmail.com']);
   const gate = document.getElementById('authGate');
   const authStatus = document.getElementById('authStatus');
   const signInButton = document.getElementById('googleSignIn');
@@ -959,6 +1029,86 @@
       signInButton.disabled = true;
     }
   }
+</script>
+
+
+<script>
+(function(){
+  const PHOTO_KEY='ourStoryScrapbookPhotos_v1';
+  const NOTE_KEY='ourStoryCuteNotes_v1';
+  const $=id=>document.getElementById(id);
+  const gallery=$('scrapGallery'), notesBox=$('cuteNotes');
+  if(!gallery || !notesBox) return;
+  let photos=read(PHOTO_KEY), notes=read(NOTE_KEY);
+  function read(key){try{const v=JSON.parse(localStorage.getItem(key)||'[]');return Array.isArray(v)?v:[]}catch{return []}}
+  function save(key,value,statusId){
+    try{localStorage.setItem(key,JSON.stringify(value)); if(statusId) $(statusId).textContent='Saved on this device ♡'; return true;}
+    catch(e){if(statusId) $(statusId).textContent='Storage is full. Try removing a photo or using a smaller image.';return false;}
+  }
+  function safeText(tag,cls,text){const el=document.createElement(tag);if(cls)el.className=cls;el.textContent=text;return el;}
+  function renderPhotos(){
+    gallery.replaceChildren();
+    if(!photos.length){const empty=document.createElement('div');empty.className='scrap-placeholder';empty.innerHTML='<div><strong>♡</strong><b>Your photo goes here</b><p>Pick a photo above and it will appear in this little wall.</p></div>';gallery.append(empty);return;}
+    photos.forEach((item,index)=>{
+      const card=document.createElement('article');card.className='scrap-item';
+      const img=document.createElement('img');img.src=item.data;img.alt=item.caption||'Our memory';
+      const body=document.createElement('div');body.className='scrap-item-body';
+      const caption=document.createElement('input');caption.type='text';caption.maxLength=120;caption.value=item.caption||'';caption.setAttribute('aria-label','Edit photo caption');caption.placeholder='Add a caption ♡';
+      caption.addEventListener('change',()=>{photos[index].caption=caption.value.trim();save(PHOTO_KEY,photos,'photoStatus');renderPhotos();});
+      const actions=document.createElement('div');actions.className='scrapbook-actions';
+      const remove=document.createElement('button');remove.type='button';remove.textContent='Remove photo ×';remove.addEventListener('click',()=>{if(confirm('Remove this photo from this browser?')){photos.splice(index,1);save(PHOTO_KEY,photos,'photoStatus');renderPhotos();}});
+      actions.append(remove);body.append(caption,actions);card.append(img,body);gallery.append(card);
+    });
+  }
+  function renderNotes(){
+    notesBox.replaceChildren();
+    if(!notes.length){const empty=document.createElement('div');empty.className='scrap-placeholder';empty.innerHTML='<div><strong>💌</strong><b>Your first little note belongs here</b><p>Leave a sweet message for your favourite human.</p></div>';notesBox.append(empty);return;}
+    notes.forEach((item,index)=>{
+      const card=document.createElement('article');card.className='cute-note';card.style.setProperty('--tilt',index%2?'1deg':'-1deg');
+      const title=safeText('h3','',item.title||'A tiny note ♡');const body=safeText('p','',item.text||'');const date=safeText('div','note-date',item.date||'saved with love');
+      const actions=document.createElement('div');actions.className='scrapbook-actions';
+      const edit=document.createElement('button');edit.type='button';edit.textContent='Edit note ✎';edit.addEventListener('click',()=>{
+        const newTitle=prompt('Edit the note title:',item.title||'');if(newTitle===null)return;
+        const newText=prompt('Edit your note:',item.text||'');if(newText===null)return;
+        if(!newText.trim()){alert('A little note needs some words ♡');return;}
+        notes[index].title=newTitle.trim()||'A tiny note ♡';notes[index].text=newText.trim();save(NOTE_KEY,notes,'noteStatus');renderNotes();
+      });
+      const remove=document.createElement('button');remove.type='button';remove.textContent='Remove ×';remove.addEventListener('click',()=>{if(confirm('Remove this note from this browser?')){notes.splice(index,1);save(NOTE_KEY,notes,'noteStatus');renderNotes();}});
+      actions.append(edit,remove);card.append(title,body,date,actions);notesBox.append(card);
+    });
+  }
+  $('addScrapPhoto').addEventListener('click',()=>{
+    const file=$('scrapPhoto').files[0];
+    if(!file){$('photoStatus').textContent='Choose a photo first, sweetheart ♡';return;}
+    if(!file.type.startsWith('image/')){$('photoStatus').textContent='Please choose an image file.';return;}
+    $('addScrapPhoto').disabled=true;$('photoStatus').textContent='Getting your photo ready…';
+    const reader=new FileReader();
+    reader.onerror=()=>{$('photoStatus').textContent='Could not read that image. Try another one.';$('addScrapPhoto').disabled=false;};
+    reader.onload=()=>{
+      const image=new Image();
+      image.onerror=()=>{$('photoStatus').textContent='That image could not be opened.';$('addScrapPhoto').disabled=false;};
+      image.onload=()=>{
+        const max=1200,scale=Math.min(1,max/Math.max(image.width,image.height));
+        const canvas=document.createElement('canvas');canvas.width=Math.max(1,Math.round(image.width*scale));canvas.height=Math.max(1,Math.round(image.height*scale));
+        canvas.getContext('2d').drawImage(image,0,0,canvas.width,canvas.height);
+        const data=canvas.toDataURL('image/jpeg',.78);
+        photos.unshift({data,caption:$('scrapCaption').value.trim(),date:new Date().toLocaleDateString()});
+        if(save(PHOTO_KEY,photos,'photoStatus')){ $('scrapPhoto').value='';$('scrapCaption').value='';renderPhotos(); }
+        else photos.shift();
+        $('addScrapPhoto').disabled=false;
+      };
+      image.src=reader.result;
+    };
+    reader.readAsDataURL(file);
+  });
+  $('addCuteNote').addEventListener('click',()=>{
+    const title=$('noteTitle').value.trim()||'A tiny note ♡';const text=$('noteText').value.trim();
+    if(!text){$('noteStatus').textContent='Write a few sweet words first ♡';return;}
+    notes.unshift({title,text,date:new Date().toLocaleDateString()});
+    if(save(NOTE_KEY,notes,'noteStatus')){$('noteTitle').value='';$('noteText').value='';renderNotes();}else notes.shift();
+  });
+  renderPhotos();renderNotes();
+})();
 </script>
 
 </body>
