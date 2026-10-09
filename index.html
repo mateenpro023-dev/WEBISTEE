@@ -207,7 +207,7 @@
       Continue with Google
     </button>
     <div id="authStatus" class="auth-status" role="status">Connecting to secure sign-in…</div>
-    <p class="auth-small">Only mateenpro023@gmail.com and sajeelamahmood24@gmail.com are approved. Other accounts will be signed out.</p>
+    <p class="auth-small">Only mateenpro023@gmail.com and sij65117@gmail.com are approved. Other accounts will be signed out.</p>
   </div>
 </div>
 
@@ -798,12 +798,12 @@
   import { getFirestore, collection, addDoc, query, orderBy, limit, onSnapshot, serverTimestamp } from 'https://www.gstatic.com/firebasejs/11.10.0/firebase-firestore.js';
 
   const firebaseConfig = {
-    apiKey: 'AIzaSyBWb17HroXqopZF0i8TPACNUjclLBVBW7M',
-    authDomain: 'webb-72e0a.firebaseapp.com',
-    projectId: 'webb-72e0a',
-    appId: '1:1041331185397:web:5eaa4cc0694618c71587bc'
+    apiKey: 'PASTE_FIREBASE_API_KEY_HERE',
+    authDomain: 'PASTE_PROJECT_ID_HERE.firebaseapp.com',
+    projectId: 'PASTE_PROJECT_ID_HERE',
+    appId: 'PASTE_FIREBASE_APP_ID_HERE'
   };
-  const ALLOWED_EMAILS = new Set(['mateenpro023@gmail.com', 'sajeelamahmood24@gmail.com']);
+  const ALLOWED_EMAILS = new Set(['mateenpro023@gmail.com', 'sij65117@gmail.com']);
   const gate = document.getElementById('authGate');
   const authStatus = document.getElementById('authStatus');
   const signInButton = document.getElementById('googleSignIn');
